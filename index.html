@@ -1,1 +1,133 @@
-index
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Journal</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- LOGIN SCREEN -->
+
+    <div id="loginScreen" class="screen active">
+
+        <div class="login-card">
+
+            <h1>My Journal</h1>
+
+            <p>
+                A private space for your thoughts.
+            </p>
+
+            <input
+                type="password"
+                id="passwordInput"
+                placeholder="Enter Password"
+            >
+
+            <button onclick="login()">
+                Unlock Journal
+            </button>
+
+            <p id="loginError"></p>
+
+        </div>
+
+    </div>
+
+    <!-- MAIN APP -->
+
+    <div id="journalApp" class="hidden">
+
+        <!-- SIDEBAR -->
+
+        <aside class="sidebar">
+
+            <h2>Entries</h2>
+
+            <button onclick="newEntry()">
+                + New Entry
+            </button>
+
+            <input
+                type="text"
+                id="searchBox"
+                placeholder="Search entries..."
+            >
+
+            <div class="stats">
+
+                <p>
+                    Total Entries:
+                    <span id="entryCount">0</span>
+                </p>
+
+                <p>
+                    Total Words:
+                    <span id="wordCount">0</span>
+                </p>
+
+            </div>
+
+            <div id="entryList"></div>
+
+            <button
+                class="export-btn"
+                onclick="exportEntries()"
+            >
+                Export Journal
+            </button>
+
+        </aside>
+
+        <!-- EDITOR -->
+
+        <main class="editor-area">
+
+            <input
+                type="text"
+                id="entryTitle"
+                placeholder="Entry title..."
+            >
+
+            <select id="moodSelect">
+
+                <option value="Neutral">Neutral</option>
+                <option value="Happy">Happy</option>
+                <option value="Sad">Sad</option>
+                <option value="Angry">Angry</option>
+                <option value="Anxious">Anxious</option>
+                <option value="Excited">Excited</option>
+
+            </select>
+
+            <textarea
+                id="journalText"
+                placeholder="Write whatever is on your mind..."
+            ></textarea>
+
+            <div class="bottom-bar">
+
+                <span id="saveStatus">
+                    Saved
+                </span>
+
+                <span id="liveWordCount">
+                    0 words
+                </span>
+
+            </div>
+
+        </main>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

@@ -12,13 +12,16 @@
 
     <title>My Journal</title>
 
-    <link rel="stylesheet" href="style.css">
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
 
 </head>
 
 <body>
 
-    <!-- LOGIN SCREEN -->
+    <!-- LOGIN -->
 
     <div
         id="loginScreen"
@@ -27,13 +30,16 @@
 
         <div class="login-card">
 
-            <h1>My Journal</h1>
+            <div class="login-top">
 
-            <p>
-                Your private digital space.
-                Write freely, reflect quietly,
-                and keep your thoughts safe.
-            </p>
+                <h1>My Journal</h1>
+
+                <p>
+                    A private place for your thoughts,
+                    memories, reflections, and late-night writing.
+                </p>
+
+            </div>
 
             <input
                 type="password"
@@ -51,7 +57,7 @@
 
     </div>
 
-    <!-- MAIN APP -->
+    <!-- APP -->
 
     <div
         id="journalApp"
@@ -62,11 +68,15 @@
 
         <aside class="sidebar">
 
-            <h2>Entries</h2>
+            <div class="sidebar-top">
 
-            <button onclick="newEntry()">
-                + New Entry
-            </button>
+                <h2>Journal</h2>
+
+                <button onclick="newEntry()">
+                    + New Entry
+                </button>
+
+            </div>
 
             <input
                 type="text"
@@ -76,15 +86,25 @@
 
             <div class="stats">
 
-                <p>
-                    Total Entries:
-                    <span id="entryCount">0</span>
-                </p>
+                <div class="stat-card">
 
-                <p>
-                    Total Words:
-                    <span id="wordCount">0</span>
-                </p>
+                    <span>Total Entries</span>
+
+                    <strong id="entryCount">
+                        0
+                    </strong>
+
+                </div>
+
+                <div class="stat-card">
+
+                    <span>Total Words</span>
+
+                    <strong id="wordCount">
+                        0
+                    </strong>
+
+                </div>
 
             </div>
 
@@ -94,53 +114,75 @@
                 class="export-btn"
                 onclick="exportEntries()"
             >
-                Export Journal
+                Export Backup
             </button>
 
         </aside>
 
-        <!-- EDITOR -->
+        <!-- MAIN -->
 
-        <main class="editor-area">
+        <main class="main-area">
 
-            <input
-                type="text"
-                id="entryTitle"
-                placeholder="Untitled Entry"
-            >
+            <!-- TOPBAR -->
 
-            <select id="moodSelect">
+            <div class="topbar">
 
-                <option value="Neutral">
-                    Neutral
-                </option>
+                <div>
 
-                <option value="Happy">
-                    Happy
-                </option>
+                    <input
+                        type="text"
+                        id="entryTitle"
+                        placeholder="Untitled Entry"
+                    >
 
-                <option value="Sad">
-                    Sad
-                </option>
+                    <p class="subtitle">
+                        Your private writing space
+                    </p>
 
-                <option value="Angry">
-                    Angry
-                </option>
+                </div>
 
-                <option value="Anxious">
-                    Anxious
-                </option>
+                <select id="moodSelect">
 
-                <option value="Excited">
-                    Excited
-                </option>
+                    <option value="Neutral">
+                        Neutral
+                    </option>
 
-            </select>
+                    <option value="Happy">
+                        Happy
+                    </option>
 
-            <textarea
-                id="journalText"
-                placeholder="Write whatever is on your mind..."
-            ></textarea>
+                    <option value="Sad">
+                        Sad
+                    </option>
+
+                    <option value="Angry">
+                        Angry
+                    </option>
+
+                    <option value="Anxious">
+                        Anxious
+                    </option>
+
+                    <option value="Excited">
+                        Excited
+                    </option>
+
+                </select>
+
+            </div>
+
+            <!-- EDITOR -->
+
+            <div class="editor-wrapper">
+
+                <textarea
+                    id="journalText"
+                    placeholder="Start writing..."
+                ></textarea>
+
+            </div>
+
+            <!-- BOTTOM -->
 
             <div class="bottom-bar">
 

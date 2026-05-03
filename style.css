@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -5,20 +7,39 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background: #0f1115;
+    font-family: 'Inter', sans-serif;
+
+    background:
+        radial-gradient(circle at top left, rgba(59,130,246,0.12), transparent 25%),
+        radial-gradient(circle at bottom right, rgba(168,85,247,0.12), transparent 25%),
+        #090b10;
+
     color: white;
+
     height: 100vh;
+
     overflow: hidden;
 }
 
-/* LOGIN */
+/* SCROLLBAR */
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #2a3140;
+    border-radius: 10px;
+}
+
+/* LOGIN SCREEN */
 
 .screen {
     display: none;
     height: 100vh;
     justify-content: center;
     align-items: center;
+    padding: 20px;
 }
 
 .screen.active {
@@ -26,60 +47,96 @@ body {
 }
 
 .login-card {
-    width: 90%;
-    max-width: 420px;
+    width: 100%;
+    max-width: 460px;
 
-    background: #171a21;
+    background: rgba(17,20,28,0.88);
 
-    padding: 40px;
+    backdrop-filter: blur(18px);
 
-    border-radius: 20px;
+    border: 1px solid rgba(255,255,255,0.08);
 
-    box-shadow: 0 0 40px rgba(0,0,0,0.4);
+    border-radius: 28px;
+
+    padding: 45px;
+
+    box-shadow:
+        0 0 40px rgba(0,0,0,0.45),
+        inset 0 1px 0 rgba(255,255,255,0.03);
+
+    animation: fadeIn 0.5s ease;
 }
 
 .login-card h1 {
+    font-size: 42px;
     margin-bottom: 10px;
-    font-size: 34px;
+    font-weight: 700;
 }
 
 .login-card p {
-    color: #aaa;
-    margin-bottom: 20px;
+    color: #9ca3af;
+    margin-bottom: 28px;
+    line-height: 1.5;
 }
 
 .login-card input {
     width: 100%;
 
-    padding: 14px;
+    padding: 16px;
 
-    border: none;
+    border: 1px solid rgba(255,255,255,0.08);
 
-    border-radius: 12px;
+    border-radius: 16px;
 
-    background: #242935;
+    background: rgba(255,255,255,0.04);
 
     color: white;
 
-    margin-bottom: 15px;
+    font-size: 15px;
+
+    outline: none;
+
+    transition: 0.2s;
+
+    margin-bottom: 18px;
+}
+
+.login-card input:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 4px rgba(59,130,246,0.15);
 }
 
 .login-card button {
     width: 100%;
 
-    padding: 14px;
+    padding: 16px;
 
     border: none;
 
-    border-radius: 12px;
+    border-radius: 16px;
 
-    background: #3b82f6;
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
 
     color: white;
 
+    font-size: 15px;
+
+    font-weight: 600;
+
     cursor: pointer;
 
-    font-size: 16px;
+    transition: 0.2s;
+}
+
+.login-card button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(37,99,235,0.35);
+}
+
+#loginError {
+    color: #f87171;
+    margin-top: 12px;
+    font-size: 14px;
 }
 
 /* APP */
@@ -96,69 +153,86 @@ body {
 /* SIDEBAR */
 
 .sidebar {
-    width: 320px;
+    width: 340px;
 
-    background: #15181e;
+    background: rgba(14,17,24,0.9);
 
-    border-right: 1px solid #252932;
+    backdrop-filter: blur(12px);
 
-    padding: 20px;
+    border-right: 1px solid rgba(255,255,255,0.06);
+
+    padding: 24px;
 
     overflow-y: auto;
 }
 
 .sidebar h2 {
-    margin-bottom: 20px;
+    font-size: 28px;
+    margin-bottom: 22px;
 }
 
 .sidebar button,
 .export-btn {
     width: 100%;
 
-    padding: 12px;
-
-    margin-bottom: 15px;
+    padding: 14px;
 
     border: none;
 
-    border-radius: 12px;
+    border-radius: 16px;
 
-    background: #3b82f6;
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
 
     color: white;
 
+    font-weight: 600;
+
     cursor: pointer;
+
+    transition: 0.2s;
+
+    margin-bottom: 16px;
+}
+
+.sidebar button:hover,
+.export-btn:hover {
+    transform: translateY(-2px);
 }
 
 #searchBox {
     width: 100%;
 
-    padding: 12px;
+    padding: 14px;
 
-    border: none;
+    border: 1px solid rgba(255,255,255,0.06);
 
-    border-radius: 12px;
+    border-radius: 16px;
 
-    background: #242935;
+    background: rgba(255,255,255,0.04);
 
     color: white;
 
-    margin-bottom: 20px;
+    outline: none;
+
+    margin-bottom: 22px;
 }
 
 .stats {
-    margin-bottom: 20px;
-    color: #aaa;
+    color: #9ca3af;
+    margin-bottom: 24px;
+    line-height: 1.8;
 }
 
 .entry-item {
-    background: #1d212a;
+    background: rgba(255,255,255,0.03);
 
-    padding: 12px;
+    border: 1px solid rgba(255,255,255,0.04);
 
-    border-radius: 12px;
+    padding: 16px;
 
-    margin-bottom: 10px;
+    border-radius: 18px;
+
+    margin-bottom: 14px;
 
     cursor: pointer;
 
@@ -166,7 +240,19 @@ body {
 }
 
 .entry-item:hover {
-    background: #272d38;
+    transform: translateY(-2px);
+
+    border-color: rgba(59,130,246,0.3);
+
+    background: rgba(59,130,246,0.08);
+}
+
+.entry-item strong {
+    font-size: 15px;
+}
+
+.entry-item small {
+    color: #9ca3af;
 }
 
 /* EDITOR */
@@ -178,7 +264,7 @@ body {
 
     flex-direction: column;
 
-    padding: 25px;
+    padding: 32px;
 }
 
 #entryTitle {
@@ -188,25 +274,31 @@ body {
 
     color: white;
 
-    font-size: 28px;
+    font-size: 40px;
 
-    margin-bottom: 15px;
+    font-weight: 700;
+
+    outline: none;
+
+    margin-bottom: 20px;
 }
 
 #moodSelect {
-    width: 180px;
+    width: 200px;
 
-    padding: 12px;
+    padding: 14px;
 
-    border: none;
+    border-radius: 16px;
 
-    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.06);
 
-    background: #242935;
+    background: rgba(255,255,255,0.04);
 
     color: white;
 
-    margin-bottom: 15px;
+    outline: none;
+
+    margin-bottom: 20px;
 }
 
 #journalText {
@@ -214,19 +306,30 @@ body {
 
     resize: none;
 
-    border: none;
+    border: 1px solid rgba(255,255,255,0.04);
 
-    border-radius: 18px;
+    border-radius: 24px;
 
-    background: #111419;
+    background: rgba(5,8,15,0.65);
+
+    backdrop-filter: blur(10px);
 
     color: white;
 
-    padding: 20px;
+    padding: 28px;
 
-    font-size: 17px;
+    font-size: 18px;
 
-    line-height: 1.8;
+    line-height: 1.9;
+
+    outline: none;
+
+    transition: 0.2s;
+}
+
+#journalText:focus {
+    border-color: rgba(59,130,246,0.35);
+    box-shadow: 0 0 0 4px rgba(59,130,246,0.12);
 }
 
 .bottom-bar {
@@ -234,14 +337,32 @@ body {
 
     justify-content: space-between;
 
-    margin-top: 10px;
+    margin-top: 14px;
 
-    color: #888;
+    color: #6b7280;
+
+    font-size: 14px;
+}
+
+/* ANIMATION */
+
+@keyframes fadeIn {
+
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
 }
 
 /* MOBILE */
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
 
     #journalApp {
         flex-direction: column;
@@ -249,7 +370,19 @@ body {
 
     .sidebar {
         width: 100%;
-        height: 300px;
+        height: 320px;
+    }
+
+    .editor-area {
+        padding: 20px;
+    }
+
+    #entryTitle {
+        font-size: 28px;
+    }
+
+    #journalText {
+        font-size: 16px;
     }
 
 }

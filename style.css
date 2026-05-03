@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
 * {
     margin: 0;
@@ -10,9 +10,8 @@ body {
     font-family: 'Inter', sans-serif;
 
     background:
-        radial-gradient(circle at top left, rgba(59,130,246,0.12), transparent 25%),
-        radial-gradient(circle at bottom right, rgba(168,85,247,0.12), transparent 25%),
-        #090b10;
+        radial-gradient(circle at top, rgba(59,130,246,0.08), transparent 30%),
+        #07090d;
 
     color: white;
 
@@ -24,15 +23,15 @@ body {
 /* SCROLLBAR */
 
 ::-webkit-scrollbar {
-    width: 8px;
+    width: 6px;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #2a3140;
-    border-radius: 10px;
+    background: #1f2430;
+    border-radius: 20px;
 }
 
-/* LOGIN SCREEN */
+/* LOGIN */
 
 .screen {
     display: none;
@@ -47,50 +46,59 @@ body {
 }
 
 .login-card {
+
     width: 100%;
-    max-width: 460px;
+    max-width: 500px;
 
-    background: rgba(17,20,28,0.88);
+    background: rgba(12,15,22,0.92);
 
-    backdrop-filter: blur(18px);
+    border: 1px solid rgba(255,255,255,0.05);
 
-    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 32px;
 
-    border-radius: 28px;
-
-    padding: 45px;
+    padding: 55px;
 
     box-shadow:
-        0 0 40px rgba(0,0,0,0.45),
-        inset 0 1px 0 rgba(255,255,255,0.03);
+        0 20px 80px rgba(0,0,0,0.55);
 
-    animation: fadeIn 0.5s ease;
+    backdrop-filter: blur(20px);
 }
 
 .login-card h1 {
-    font-size: 42px;
-    margin-bottom: 10px;
-    font-weight: 700;
+
+    font-size: 52px;
+
+    font-weight: 800;
+
+    margin-bottom: 14px;
+
+    letter-spacing: -2px;
 }
 
 .login-card p {
-    color: #9ca3af;
-    margin-bottom: 28px;
-    line-height: 1.5;
+
+    color: #8b93a7;
+
+    line-height: 1.7;
+
+    margin-bottom: 30px;
+
+    font-size: 15px;
 }
 
 .login-card input {
+
     width: 100%;
 
-    padding: 16px;
+    background: #11151d;
 
-    border: 1px solid rgba(255,255,255,0.08);
-
-    border-radius: 16px;
-
-    background: rgba(255,255,255,0.04);
+    border: 1px solid transparent;
 
     color: white;
+
+    padding: 18px;
+
+    border-radius: 18px;
 
     font-size: 15px;
 
@@ -102,40 +110,55 @@ body {
 }
 
 .login-card input:focus {
+
     border-color: #3b82f6;
-    box-shadow: 0 0 0 4px rgba(59,130,246,0.15);
+
+    box-shadow:
+        0 0 0 4px rgba(59,130,246,0.12);
 }
 
 .login-card button {
-    width: 100%;
 
-    padding: 16px;
+    width: 100%;
 
     border: none;
 
-    border-radius: 16px;
-
-    background: linear-gradient(135deg, #3b82f6, #2563eb);
+    background:
+        linear-gradient(
+            135deg,
+            #3b82f6,
+            #2563eb
+        );
 
     color: white;
 
-    font-size: 15px;
+    padding: 18px;
+
+    border-radius: 18px;
 
     font-weight: 600;
 
+    font-size: 15px;
+
     cursor: pointer;
 
-    transition: 0.2s;
+    transition: 0.25s;
 }
 
 .login-card button:hover {
+
     transform: translateY(-2px);
-    box-shadow: 0 10px 25px rgba(37,99,235,0.35);
+
+    box-shadow:
+        0 12px 35px rgba(37,99,235,0.35);
 }
 
 #loginError {
-    color: #f87171;
+
+    color: #ef4444;
+
     margin-top: 12px;
+
     font-size: 14px;
 }
 
@@ -146,44 +169,58 @@ body {
 }
 
 #journalApp {
+
     display: flex;
+
     height: 100vh;
 }
 
 /* SIDEBAR */
 
 .sidebar {
-    width: 340px;
 
-    background: rgba(14,17,24,0.9);
+    width: 300px;
 
-    backdrop-filter: blur(12px);
+    background: rgba(10,12,18,0.94);
 
-    border-right: 1px solid rgba(255,255,255,0.06);
+    border-right:
+        1px solid rgba(255,255,255,0.04);
 
-    padding: 24px;
+    padding: 26px;
 
     overflow-y: auto;
 }
 
 .sidebar h2 {
-    font-size: 28px;
-    margin-bottom: 22px;
+
+    font-size: 34px;
+
+    font-weight: 700;
+
+    margin-bottom: 26px;
+
+    letter-spacing: -1px;
 }
 
 .sidebar button,
 .export-btn {
-    width: 100%;
 
-    padding: 14px;
+    width: 100%;
 
     border: none;
 
-    border-radius: 16px;
-
-    background: linear-gradient(135deg, #3b82f6, #2563eb);
+    background:
+        linear-gradient(
+            135deg,
+            #3b82f6,
+            #2563eb
+        );
 
     color: white;
+
+    padding: 15px;
+
+    border-radius: 18px;
 
     font-weight: 600;
 
@@ -191,46 +228,57 @@ body {
 
     transition: 0.2s;
 
-    margin-bottom: 16px;
+    margin-bottom: 18px;
 }
 
 .sidebar button:hover,
 .export-btn:hover {
+
     transform: translateY(-2px);
 }
 
 #searchBox {
+
     width: 100%;
 
-    padding: 14px;
-
-    border: 1px solid rgba(255,255,255,0.06);
-
-    border-radius: 16px;
-
-    background: rgba(255,255,255,0.04);
-
-    color: white;
-
-    outline: none;
-
-    margin-bottom: 22px;
-}
-
-.stats {
-    color: #9ca3af;
-    margin-bottom: 24px;
-    line-height: 1.8;
-}
-
-.entry-item {
-    background: rgba(255,255,255,0.03);
+    background: #121720;
 
     border: 1px solid rgba(255,255,255,0.04);
 
-    padding: 16px;
+    color: white;
+
+    padding: 15px;
 
     border-radius: 18px;
+
+    outline: none;
+
+    margin-bottom: 25px;
+}
+
+.stats {
+
+    color: #7d8596;
+
+    line-height: 1.9;
+
+    margin-bottom: 25px;
+
+    font-size: 15px;
+}
+
+/* ENTRY CARDS */
+
+.entry-item {
+
+    background: #11151d;
+
+    border:
+        1px solid rgba(255,255,255,0.03);
+
+    padding: 18px;
+
+    border-radius: 22px;
 
     margin-bottom: 14px;
 
@@ -240,87 +288,105 @@ body {
 }
 
 .entry-item:hover {
+
     transform: translateY(-2px);
 
-    border-color: rgba(59,130,246,0.3);
+    border-color:
+        rgba(59,130,246,0.25);
 
-    background: rgba(59,130,246,0.08);
+    background: #151b25;
 }
 
 .entry-item strong {
-    font-size: 15px;
+
+    font-size: 16px;
+
+    display: block;
+
+    margin-bottom: 6px;
 }
 
 .entry-item small {
-    color: #9ca3af;
+
+    color: #7d8596;
+
+    display: block;
+
+    line-height: 1.5;
 }
 
 /* EDITOR */
 
 .editor-area {
+
     flex: 1;
+
+    padding: 45px;
 
     display: flex;
 
     flex-direction: column;
-
-    padding: 32px;
 }
 
 #entryTitle {
+
     background: transparent;
 
     border: none;
 
     color: white;
 
-    font-size: 40px;
+    font-size: 56px;
 
-    font-weight: 700;
+    font-weight: 800;
+
+    letter-spacing: -2px;
 
     outline: none;
 
-    margin-bottom: 20px;
+    margin-bottom: 24px;
 }
 
 #moodSelect {
-    width: 200px;
 
-    padding: 14px;
+    width: 180px;
 
-    border-radius: 16px;
+    background: #121720;
 
-    border: 1px solid rgba(255,255,255,0.06);
-
-    background: rgba(255,255,255,0.04);
+    border:
+        1px solid rgba(255,255,255,0.04);
 
     color: white;
 
+    padding: 15px;
+
+    border-radius: 18px;
+
     outline: none;
 
-    margin-bottom: 20px;
+    margin-bottom: 28px;
 }
 
 #journalText {
+
     flex: 1;
 
     resize: none;
 
-    border: 1px solid rgba(255,255,255,0.04);
+    background: rgba(7,10,16,0.75);
 
-    border-radius: 24px;
+    border:
+        1px solid rgba(255,255,255,0.03);
 
-    background: rgba(5,8,15,0.65);
+    border-radius: 32px;
 
-    backdrop-filter: blur(10px);
+    padding: 35px;
 
     color: white;
 
-    padding: 28px;
+    font-size: 19px;
 
-    font-size: 18px;
-
-    line-height: 1.9;
+    line-height: 2;
 
     outline: none;
 
@@ -328,36 +394,30 @@ body {
 }
 
 #journalText:focus {
-    border-color: rgba(59,130,246,0.35);
-    box-shadow: 0 0 0 4px rgba(59,130,246,0.12);
+
+    border-color:
+        rgba(59,130,246,0.25);
+
+    box-shadow:
+        0 0 0 4px rgba(59,130,246,0.08);
+}
+
+#journalText::placeholder {
+
+    color: #5f6675;
 }
 
 .bottom-bar {
+
     display: flex;
 
     justify-content: space-between;
 
-    margin-top: 14px;
+    margin-top: 16px;
 
-    color: #6b7280;
+    color: #5f6675;
 
     font-size: 14px;
-}
-
-/* ANIMATION */
-
-@keyframes fadeIn {
-
-    from {
-        opacity: 0;
-        transform: translateY(10px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-
 }
 
 /* MOBILE */
@@ -369,20 +429,27 @@ body {
     }
 
     .sidebar {
+
         width: 100%;
-        height: 320px;
+
+        height: 300px;
     }
 
     .editor-area {
-        padding: 20px;
+
+        padding: 24px;
     }
 
     #entryTitle {
-        font-size: 28px;
+
+        font-size: 38px;
     }
 
     #journalText {
-        font-size: 16px;
+
+        font-size: 17px;
+
+        padding: 24px;
     }
 
 }

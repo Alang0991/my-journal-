@@ -1,10 +1,15 @@
-const PASSWORD = "blueybarks";
+const PASSWORD = "BlueyBarks";
+
+/* STORAGE */
 
 let entries =
-    JSON.parse(localStorage.getItem("journalEntries"))
-    || [];
+    JSON.parse(
+        localStorage.getItem("journalEntries")
+    ) || [];
 
 let currentEntry = null;
+
+/* ELEMENTS */
 
 const loginScreen =
     document.getElementById("loginScreen");
@@ -49,7 +54,10 @@ const searchBox =
 
 function login() {
 
-    if (passwordInput.value === PASSWORD) {
+    const enteredPassword =
+        passwordInput.value;
+
+    if (enteredPassword === PASSWORD) {
 
         loginScreen.classList.remove("active");
 
@@ -70,11 +78,23 @@ function login() {
     } else {
 
         loginError.textContent =
-            "Wrong password.";
+            "Incorrect password.";
+
+        passwordInput.style.borderColor =
+            "#f87171";
+
+        setTimeout(() => {
+
+            passwordInput.style.borderColor =
+                "rgba(255,255,255,0.08)";
+
+        }, 1500);
 
     }
 
 }
+
+/* ENTER KEY LOGIN */
 
 passwordInput.addEventListener(
     "keydown",
@@ -89,7 +109,7 @@ passwordInput.addEventListener(
     }
 );
 
-/* NEW ENTRY */
+/* CREATE NEW ENTRY */
 
 function newEntry() {
 
@@ -122,7 +142,9 @@ function newEntry() {
 function loadEntry(id) {
 
     currentEntry =
-        entries.find(entry => entry.id === id);
+        entries.find(
+            entry => entry.id === id
+        );
 
     if (!currentEntry) return;
 
@@ -152,7 +174,7 @@ function saveEntries() {
 
 }
 
-/* RENDER */
+/* RENDER ENTRIES */
 
 function renderEntries() {
 
@@ -165,6 +187,7 @@ function renderEntries() {
         .filter(entry => {
 
             return (
+
                 entry.title
                     .toLowerCase()
                     .includes(search)
@@ -174,6 +197,7 @@ function renderEntries() {
                 entry.content
                     .toLowerCase()
                     .includes(search)
+
             );
 
         })
@@ -183,7 +207,8 @@ function renderEntries() {
             const div =
                 document.createElement("div");
 
-            div.className = "entry-item";
+            div.className =
+                "entry-item";
 
             div.innerHTML = `
                 <strong>${entry.title}</strong><br>
@@ -205,7 +230,7 @@ function renderEntries() {
 
 }
 
-/* STATS */
+/* UPDATE STATS */
 
 function updateStats() {
 
@@ -215,11 +240,14 @@ function updateStats() {
     const totalWords =
         entries.reduce((count, entry) => {
 
-            return count +
+            return (
+                count +
+
                 entry.content
                     .split(/\\s+/)
                     .filter(Boolean)
-                    .length;
+                    .length
+            );
 
         }, 0);
 
@@ -228,7 +256,7 @@ function updateStats() {
 
 }
 
-/* WORD COUNT */
+/* LIVE WORD COUNT */
 
 function updateLiveWordCount() {
 
@@ -271,6 +299,15 @@ function autoSave() {
     saveStatus.textContent =
         "Saved";
 
+    saveStatus.style.opacity = "1";
+
+    setTimeout(() => {
+
+        saveStatus.style.opacity =
+            "0.5";
+
+    }, 1000);
+
 }
 
 /* EXPORT */
@@ -278,7 +315,11 @@ function autoSave() {
 function exportEntries() {
 
     const data =
-        JSON.stringify(entries, null, 2);
+        JSON.stringify(
+            entries,
+            null,
+            2
+        );
 
     const blob =
         new Blob(
@@ -303,7 +344,14 @@ function exportEntries() {
 
 }
 
-/* EVENTS */
+/* SEARCH */
+
+searchBox.addEventListener(
+    "input",
+    renderEntries
+);
+
+/* AUTO SAVE EVENTS */
 
 entryTitle.addEventListener(
     "input",
@@ -320,11 +368,6 @@ moodSelect.addEventListener(
     autoSave
 );
 
-searchBox.addEventListener(
-    "input",
-    renderEntries
-);
-
 /* AUTO SAVE LOOP */
 
 setInterval(() => {
@@ -333,6 +376,41 @@ setInterval(() => {
 
 }, 10000);
 
-/* START */
+/* SHORTCUTS */
+
+document.addEventListener(
+    "keydown",
+    function(event) {
+
+        /* CTRL + S */
+
+        if (
+            event.ctrlKey &&
+            event.key === "s"
+        ) {
+
+            event.preventDefault();
+
+            autoSave();
+
+        }
+
+        /* CTRL + N */
+
+        if (
+            event.ctrlKey &&
+            event.key === "n"
+        ) {
+
+            event.preventDefault();
+
+            newEntry();
+
+        }
+
+    }
+);
+
+/* INITIALIZE */
 
 updateStats();

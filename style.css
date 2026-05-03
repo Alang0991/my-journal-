@@ -6,14 +6,45 @@
     box-sizing: border-box;
 }
 
+:root {
+
+    --bg: #05070b;
+
+    --panel: rgba(15,18,26,0.72);
+
+    --panel-solid: #0f1219;
+
+    --border:
+        rgba(255,255,255,0.05);
+
+    --text: #ffffff;
+
+    --muted: #8b93a7;
+
+    --blue: #3b82f6;
+
+}
+
 body {
+
     font-family: 'Inter', sans-serif;
 
     background:
-        radial-gradient(circle at top, rgba(59,130,246,0.08), transparent 30%),
-        #07090d;
+        radial-gradient(
+            circle at top left,
+            rgba(59,130,246,0.12),
+            transparent 25%
+        ),
 
-    color: white;
+        radial-gradient(
+            circle at bottom right,
+            rgba(139,92,246,0.10),
+            transparent 25%
+        ),
+
+        var(--bg);
+
+    color: var(--text);
 
     height: 100vh;
 
@@ -23,98 +54,110 @@ body {
 /* SCROLLBAR */
 
 ::-webkit-scrollbar {
-    width: 6px;
+    width: 7px;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #1f2430;
-    border-radius: 20px;
+
+    background: #1e2430;
+
+    border-radius: 30px;
 }
 
 /* LOGIN */
 
 .screen {
+
     display: none;
+
     height: 100vh;
+
     justify-content: center;
+
     align-items: center;
-    padding: 20px;
+
+    padding: 30px;
 }
 
 .screen.active {
+
     display: flex;
 }
 
 .login-card {
 
     width: 100%;
-    max-width: 500px;
 
-    background: rgba(12,15,22,0.92);
+    max-width: 520px;
 
-    border: 1px solid rgba(255,255,255,0.05);
+    background: rgba(15,18,26,0.78);
 
-    border-radius: 32px;
+    backdrop-filter: blur(28px);
 
-    padding: 55px;
+    border:
+        1px solid rgba(255,255,255,0.05);
+
+    border-radius: 38px;
+
+    padding: 60px;
 
     box-shadow:
-        0 20px 80px rgba(0,0,0,0.55);
-
-    backdrop-filter: blur(20px);
+        0 25px 90px rgba(0,0,0,0.55);
 }
 
 .login-card h1 {
 
-    font-size: 52px;
+    font-size: 68px;
 
     font-weight: 800;
 
-    margin-bottom: 14px;
+    letter-spacing: -4px;
 
-    letter-spacing: -2px;
+    margin-bottom: 16px;
 }
 
 .login-card p {
 
-    color: #8b93a7;
+    color: var(--muted);
 
-    line-height: 1.7;
+    font-size: 16px;
 
-    margin-bottom: 30px;
+    line-height: 1.8;
 
-    font-size: 15px;
+    margin-bottom: 35px;
 }
 
 .login-card input {
 
     width: 100%;
 
-    background: #11151d;
+    background: rgba(255,255,255,0.03);
 
-    border: 1px solid transparent;
+    border:
+        1px solid rgba(255,255,255,0.05);
 
     color: white;
 
-    padding: 18px;
+    padding: 20px;
 
-    border-radius: 18px;
-
-    font-size: 15px;
+    border-radius: 22px;
 
     outline: none;
 
+    font-size: 16px;
+
     transition: 0.2s;
 
-    margin-bottom: 18px;
+    margin-bottom: 20px;
 }
 
 .login-card input:focus {
 
-    border-color: #3b82f6;
+    border-color:
+        rgba(59,130,246,0.5);
 
     box-shadow:
-        0 0 0 4px rgba(59,130,246,0.12);
+        0 0 0 5px rgba(59,130,246,0.10);
 }
 
 .login-card button {
@@ -132,13 +175,13 @@ body {
 
     color: white;
 
-    padding: 18px;
+    padding: 20px;
 
-    border-radius: 18px;
+    border-radius: 22px;
 
-    font-weight: 600;
+    font-size: 16px;
 
-    font-size: 15px;
+    font-weight: 700;
 
     cursor: pointer;
 
@@ -147,10 +190,10 @@ body {
 
 .login-card button:hover {
 
-    transform: translateY(-2px);
+    transform: translateY(-3px);
 
     box-shadow:
-        0 12px 35px rgba(37,99,235,0.35);
+        0 14px 35px rgba(37,99,235,0.35);
 }
 
 #loginError {
@@ -158,8 +201,6 @@ body {
     color: #ef4444;
 
     margin-top: 12px;
-
-    font-size: 14px;
 }
 
 /* APP */
@@ -179,27 +220,29 @@ body {
 
 .sidebar {
 
-    width: 300px;
+    width: 340px;
 
-    background: rgba(10,12,18,0.94);
+    background: rgba(11,14,20,0.88);
+
+    backdrop-filter: blur(18px);
 
     border-right:
         1px solid rgba(255,255,255,0.04);
 
-    padding: 26px;
+    padding: 28px;
 
     overflow-y: auto;
 }
 
 .sidebar h2 {
 
-    font-size: 34px;
+    font-size: 42px;
 
-    font-weight: 700;
+    font-weight: 800;
 
-    margin-bottom: 26px;
+    letter-spacing: -2px;
 
-    letter-spacing: -1px;
+    margin-bottom: 30px;
 }
 
 .sidebar button,
@@ -218,11 +261,11 @@ body {
 
     color: white;
 
-    padding: 15px;
+    padding: 16px;
 
-    border-radius: 18px;
+    border-radius: 20px;
 
-    font-weight: 600;
+    font-weight: 700;
 
     cursor: pointer;
 
@@ -241,15 +284,17 @@ body {
 
     width: 100%;
 
-    background: #121720;
+    background:
+        rgba(255,255,255,0.03);
 
-    border: 1px solid rgba(255,255,255,0.04);
+    border:
+        1px solid rgba(255,255,255,0.04);
 
     color: white;
 
-    padding: 15px;
+    padding: 16px;
 
-    border-radius: 18px;
+    border-radius: 20px;
 
     outline: none;
 
@@ -258,59 +303,58 @@ body {
 
 .stats {
 
-    color: #7d8596;
+    color: var(--muted);
 
     line-height: 1.9;
 
     margin-bottom: 25px;
-
-    font-size: 15px;
 }
 
 /* ENTRY CARDS */
 
 .entry-item {
 
-    background: #11151d;
+    background:
+        rgba(255,255,255,0.025);
 
     border:
         1px solid rgba(255,255,255,0.03);
 
+    border-radius: 24px;
+
     padding: 18px;
 
-    border-radius: 22px;
-
-    margin-bottom: 14px;
+    margin-bottom: 16px;
 
     cursor: pointer;
 
-    transition: 0.2s;
+    transition: 0.22s;
 }
 
 .entry-item:hover {
 
-    transform: translateY(-2px);
+    transform:
+        translateY(-3px);
 
     border-color:
         rgba(59,130,246,0.25);
 
-    background: #151b25;
+    background:
+        rgba(59,130,246,0.06);
 }
 
 .entry-item strong {
 
-    font-size: 16px;
-
     display: block;
+
+    font-size: 16px;
 
     margin-bottom: 6px;
 }
 
 .entry-item small {
 
-    color: #7d8596;
-
-    display: block;
+    color: var(--muted);
 
     line-height: 1.5;
 }
@@ -321,11 +365,11 @@ body {
 
     flex: 1;
 
-    padding: 45px;
-
     display: flex;
 
     flex-direction: column;
+
+    padding: 55px;
 }
 
 #entryTitle {
@@ -334,24 +378,25 @@ body {
 
     border: none;
 
+    outline: none;
+
     color: white;
 
-    font-size: 56px;
+    font-size: 72px;
 
     font-weight: 800;
 
-    letter-spacing: -2px;
-
-    outline: none;
+    letter-spacing: -4px;
 
     margin-bottom: 24px;
 }
 
 #moodSelect {
 
-    width: 180px;
+    width: 200px;
 
-    background: #121720;
+    background:
+        rgba(255,255,255,0.03);
 
     border:
         1px solid rgba(255,255,255,0.04);
@@ -360,11 +405,11 @@ body {
 
     padding: 15px;
 
-    border-radius: 18px;
+    border-radius: 20px;
 
     outline: none;
 
-    margin-bottom: 28px;
+    margin-bottom: 30px;
 }
 
 #journalText {
@@ -373,38 +418,39 @@ body {
 
     resize: none;
 
-    background: rgba(7,10,16,0.75);
+    background:
+        rgba(7,10,16,0.82);
 
     border:
         1px solid rgba(255,255,255,0.03);
 
-    border-radius: 32px;
+    border-radius: 36px;
 
-    padding: 35px;
+    padding: 40px;
 
     color: white;
 
-    font-size: 19px;
+    font-size: 20px;
 
     line-height: 2;
 
     outline: none;
 
-    transition: 0.2s;
+    transition: 0.25s;
 }
 
 #journalText:focus {
 
     border-color:
-        rgba(59,130,246,0.25);
+        rgba(59,130,246,0.20);
 
     box-shadow:
-        0 0 0 4px rgba(59,130,246,0.08);
+        0 0 0 5px rgba(59,130,246,0.08);
 }
 
 #journalText::placeholder {
 
-    color: #5f6675;
+    color: #646d80;
 }
 
 .bottom-bar {
@@ -413,9 +459,9 @@ body {
 
     justify-content: space-between;
 
-    margin-top: 16px;
+    margin-top: 18px;
 
-    color: #5f6675;
+    color: #646d80;
 
     font-size: 14px;
 }
@@ -425,6 +471,7 @@ body {
 @media (max-width: 900px) {
 
     #journalApp {
+
         flex-direction: column;
     }
 
@@ -432,24 +479,24 @@ body {
 
         width: 100%;
 
-        height: 300px;
+        height: 320px;
     }
 
     .editor-area {
 
-        padding: 24px;
+        padding: 25px;
     }
 
     #entryTitle {
 
-        font-size: 38px;
+        font-size: 42px;
     }
 
     #journalText {
 
         font-size: 17px;
 
-        padding: 24px;
+        padding: 25px;
     }
 
 }
